@@ -10,3 +10,5 @@
           - my_package_1
           - my_package_2
 	state: present
+	register: result
+	failed_when: result.failed
