@@ -4,6 +4,10 @@
   hosts: my_group
 
   tasks:
+    - name: Check if packages are installed
+      package_facts:
+        manager: auto
+
     - name: Install packages
       package:
         name:
@@ -12,3 +16,5 @@
 	state: present
 	register: result
 	failed_when: result.failed
+        when: "'my_package_1' not in ansible_facts.packages or 'my_package_2' not in ansible_facts.packages"
+
