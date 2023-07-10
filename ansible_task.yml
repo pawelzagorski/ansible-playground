@@ -7,6 +7,8 @@
     - name: Check if packages are installed
       package_facts:
         manager: auto
+      register: package_info
+      failed_when: package_info.failed
 
     - name: Install packages
       package:
