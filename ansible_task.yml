@@ -1,0 +1,12 @@
+---
+- name: Package installer
+  become: true
+  hosts: my_group
+
+  tasks:
+    - name: Install packages
+      package:
+        name:
+          - my_package_1
+          - my_package_2
+	state: present
